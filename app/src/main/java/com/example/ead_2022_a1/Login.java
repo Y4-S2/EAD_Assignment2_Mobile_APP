@@ -19,13 +19,13 @@ public class Login extends AppCompatActivity {
 
         loginBtn = findViewById(R.id.login);
 
-//        loginBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(Login.this, ItemAdapter.class);
-//                startActivity(intent);
-//            }
-//        });
+        loginBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Login.this, ItemView.class);
+                startActivity(intent);
+            }
+        });
     }
 
 
