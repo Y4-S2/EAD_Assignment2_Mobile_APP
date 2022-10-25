@@ -36,7 +36,7 @@ public class ItemView extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(new ItemRecyclerAdapter(fuelStation));
+        recyclerView.setAdapter(new ItemRecyclerAdapter(fuelStation , this));
 
     }
 
@@ -48,4 +48,6 @@ public class ItemView extends AppCompatActivity {
         fuelStation.add(new Item("Puma"));
         fuelStation.add(new Item("BP"));
     }
+
+
 }

@@ -5,9 +5,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,8 +19,9 @@ public class ItemRecyclerAdapter extends RecyclerView.Adapter<ItemRecyclerAdapte
     private Context context;
     private ArrayList<Item> itemList;
 
-    public ItemRecyclerAdapter( ArrayList<Item> itemList) {
+    public ItemRecyclerAdapter( ArrayList<Item> itemList , Context context) {
         this.itemList = itemList;
+        this.context = context;
     }
 
     @NonNull
@@ -31,6 +35,16 @@ public class ItemRecyclerAdapter extends RecyclerView.Adapter<ItemRecyclerAdapte
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         String name = itemList.get(position).getTaskTitle();
         holder.fsName.setText(name);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BottomSheetDialog bottomSheetDialog = new BottomSheetDialog( context , R.style.BottomSheetDialogTheme);
+                View bottomSheetView = LayoutInflater.from(context).inflate(R.layout.layout_bottom_sheet, null);
+                bottomSheetDialog.setContentView(bottomSheetView);
+                bottomSheetDialog.show();
+            }
+        });
     }
 
     @Override
