@@ -1,15 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="16dp"
+    android:id="@+id/cardView"
+    android:layout_margin="20dp"
+    app:cardElevation="3dp"
+    app:cardBackgroundColor="#81C784"
+    app:contentPadding="4dp"
     >
 
-    <TextView
-        android:id="@+id/fsName"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Name"
-        />
+        android:padding="16dp"
+        android:id="@+id/constraintLayout"
+        >
 
-</RelativeLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Hello World"
+            android:id="@+id/fsName"
+            android:layout_margin="5dp"
+            android:textSize="20sp"
+            android:textColor="#000"
+            android:fontFamily="@font/bungee"
+            android:transitionName="logo_text"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textAlignment="center"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

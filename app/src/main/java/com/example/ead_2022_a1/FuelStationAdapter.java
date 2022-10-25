@@ -29,6 +29,10 @@ public class FuelStationAdapter extends ArrayAdapter<FuelStation> {
         FuelStation fuelStation = getItem(position);
         fsName.setText(fuelStation.getFsName());
 
+
+
         return view;
     }
+
+
 }

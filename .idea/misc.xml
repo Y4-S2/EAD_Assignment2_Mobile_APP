@@ -5,17 +5,24 @@
       <map>
         <entry key="..\:/Users/CHAMA COMPUTERS/AndroidStudioProjects/EAD_2022_A1/app/src/main/res/drawable-v24/ic_add_black_24dp.xml" value="0.1835" />
         <entry key="..\:/Users/CHAMA COMPUTERS/AndroidStudioProjects/EAD_2022_A1/app/src/main/res/drawable-v24/ic_arrow_back_black_24dp.xml" value="0.1835" />
+        <entry key="..\:/Users/CHAMA COMPUTERS/AndroidStudioProjects/EAD_2022_A1/app/src/main/res/drawable/user_bottom_sheet_background.xml" value="0.173" />
         <entry key="..\:/Users/CHAMA COMPUTERS/AndroidStudioProjects/EAD_2022_A1/app/src/main/res/font/amita.xml" value="0.234375" />
         <entry key="..\:/Users/CHAMA COMPUTERS/AndroidStudioProjects/EAD_2022_A1/app/src/main/res/font/antic.xml" value="0.1" />
         <entry key="..\:/Users/CHAMA COMPUTERS/AndroidStudioProjects/EAD_2022_A1/app/src/main/res/font/bangers.xml" value="0.109375" />
         <entry key="..\:/Users/CHAMA COMPUTERS/AndroidStudioProjects/EAD_2022_A1/app/src/main/res/font/bungee.xml" value="0.234375" />
+        <entry key="..\:/Users/CHAMA COMPUTERS/AndroidStudioProjects/EAD_2022_A1/app/src/main/res/layout/activity_dashboard.xml" value="0.12291666666666666" />
         <entry key="..\:/Users/CHAMA COMPUTERS/AndroidStudioProjects/EAD_2022_A1/app/src/main/res/layout/activity_item_view.xml" value="0.22" />
         <entry key="..\:/Users/CHAMA COMPUTERS/AndroidStudioProjects/EAD_2022_A1/app/src/main/res/layout/activity_list_view.xml" value="0.1" />
         <entry key="..\:/Users/CHAMA COMPUTERS/AndroidStudioProjects/EAD_2022_A1/app/src/main/res/layout/activity_login.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/CHAMA COMPUTERS/AndroidStudioProjects/EAD_2022_A1/app/src/main/res/layout/activity_main.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/CHAMA COMPUTERS/AndroidStudioProjects/EAD_2022_A1/app/src/main/res/layout/activity_register.xml" value="0.1" />
         <entry key="..\:/Users/CHAMA COMPUTERS/AndroidStudioProjects/EAD_2022_A1/app/src/main/res/layout/display_recycler.xml" value="0.1" />
+        <entry key="..\:/Users/CHAMA COMPUTERS/AndroidStudioProjects/EAD_2022_A1/app/src/main/res/layout/fragment_user_bottom_sheet.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/CHAMA COMPUTERS/AndroidStudioProjects/EAD_2022_A1/app/src/main/res/layout/item_card.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/CHAMA COMPUTERS/AndroidStudioProjects/EAD_2022_A1/app/src/main/res/layout/item_recycler_view.xml" value="0.12291666666666666" />
         <entry key="..\:/Users/CHAMA COMPUTERS/AndroidStudioProjects/EAD_2022_A1/app/src/main/res/layout/list_item.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/CHAMA COMPUTERS/AndroidStudioProjects/EAD_2022_A1/app/src/main/res/layout/user_bottom_sheet.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/CHAMA COMPUTERS/AndroidStudioProjects/EAD_2022_A1/app/src/main/res/layout/user_bottom_sheet_background2.xml" value="0.17074275362318841" />
       </map>
     </option>
   </component>

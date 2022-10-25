@@ -37,4 +37,9 @@ public class Item {
     public boolean isComplete() {
         return isComplete;
     }
+
+    //constructor
+    public Item(String title) {
+        this.title = title;
+    }
 }
