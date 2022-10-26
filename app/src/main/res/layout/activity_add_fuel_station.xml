@@ -21,7 +21,7 @@
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_marginLeft="20dp"
-            android:src="@drawable/car"
+            android:src="@drawable/lognew2"
             android:transitionName="logo_image" />
 
         <TextView
@@ -29,18 +29,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/bungee"
-            android:text="Hello There, Welcome Back"
+            android:text="Add Fuel Station"
             android:textColor="#000"
-            android:textSize="40sp"
+            android:textSize="20sp"
             android:transitionName="logo_text" />
 
-        <TextView
-            android:id="@+id/slogan_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sign In to continue"
-            android:textSize="18sp"
-            android:transitionName="logo_continue" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -50,16 +43,16 @@
             android:orientation="vertical">
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/login_username_layout"
+                android:id="@+id/fuel_station_name_layout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Username"
-                android:transitionName="input_username">
+                android:hint="Fuel Station Name"
+                android:transitionName="input_fuel_station_name">
                 app:boxStrokeColor="#FF9100">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/login_username_edittext"
+                    android:id="@+id/fuel_station_name_edit_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textCursorDrawable="@android:color/holo_blue_bright" />
@@ -67,49 +60,20 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/login_password_layout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Password"
-                app:boxStrokeColor="#FF9100"
-                android:transitionName="input_password"
-                app:passwordToggleEnabled="true">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/login_password_edittext"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPassword" />
-
-
-            </com.google.android.material.textfield.TextInputLayout>
 
 
 
             <Button
-                android:id="@+id/login"
+                android:id="@+id/add_fuel_station_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:background="#000"
-                android:text="LOGIN"
+                android:text="Add"
                 android:textColor="#fff"
-                android:transitionName="btn_log" />
-
-            <Button
-                android:id="@+id/lregister"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:layout_margin="5dp"
-                android:background="#00000000"
-                android:elevation="0dp"
-                android:text="New User? SIGN UP"
-                android:textColor="#000"
-                android:transitionName="btn_sign" />
+                android:transitionName="add_fuel_station_button" />
 
 
         </LinearLayout>

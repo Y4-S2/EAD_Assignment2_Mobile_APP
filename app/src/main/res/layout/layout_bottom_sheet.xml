@@ -22,33 +22,33 @@
         />
 
 <!--    left before pump button -->
-    <Button
-        android:id="@+id/left_before_pump_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:text="Left Before Pump"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:onClick="leftBeforePump"
-        />
+<!--    <Button-->
+<!--        android:id="@+id/left_before_pump_button"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginBottom="10dp"-->
+<!--        android:layout_marginLeft="10dp"-->
+<!--        android:layout_marginRight="10dp"-->
+<!--        android:text="Left Before Pump"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:textSize="20sp"-->
+<!--        android:onClick="leftBeforePump"-->
+<!--        />-->
 
-<!--    left after pump button -->
-    <Button
-        android:id="@+id/left_after_pump_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:text="Left After Pump"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:onClick="leftAfterPump"
-        />
+<!--&lt;!&ndash;    left after pump button &ndash;&gt;-->
+<!--    <Button-->
+<!--        android:id="@+id/left_after_pump_button"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginBottom="10dp"-->
+<!--        android:layout_marginLeft="10dp"-->
+<!--        android:layout_marginRight="10dp"-->
+<!--        android:text="Left After Pump"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:textSize="20sp"-->
+<!--        android:onClick="leftAfterPump"-->
+<!--        />-->
 
 </LinearLayout>

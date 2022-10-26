@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class ItemView extends AppCompatActivity {
 
 
-    private ArrayList<Item> fuelStation;
+    private ArrayList<FuelStation> fuelStation;
     private RecyclerView recyclerView;
     LinearLayoutManager layoutManager;
 
@@ -43,10 +43,10 @@ public class ItemView extends AppCompatActivity {
     //set fuel station info
     private void setFuelStationInfo() {
         //add items to array list
-        fuelStation.add(new Item("Shell"));
-        fuelStation.add(new Item("Caltex"));
-        fuelStation.add(new Item("Puma"));
-        fuelStation.add(new Item("BP"));
+        fuelStation.add(new FuelStation("Shell"));
+        fuelStation.add(new FuelStation("Caltex"));
+        fuelStation.add(new FuelStation("Puma"));
+        fuelStation.add(new FuelStation("BP"));
     }
 
 

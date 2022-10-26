@@ -17,9 +17,9 @@ import java.util.List;
 
 public class ItemRecyclerAdapter extends RecyclerView.Adapter<ItemRecyclerAdapter.MyViewHolder>{
     private Context context;
-    private ArrayList<Item> itemList;
+    private ArrayList<FuelStation> itemList;
 
-    public ItemRecyclerAdapter( ArrayList<Item> itemList , Context context) {
+    public ItemRecyclerAdapter( ArrayList<FuelStation> itemList , Context context) {
         this.itemList = itemList;
         this.context = context;
     }
@@ -33,7 +33,7 @@ public class ItemRecyclerAdapter extends RecyclerView.Adapter<ItemRecyclerAdapte
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        String name = itemList.get(position).getTaskTitle();
+        String name = itemList.get(position).getFsName();
         holder.fsName.setText(name);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {

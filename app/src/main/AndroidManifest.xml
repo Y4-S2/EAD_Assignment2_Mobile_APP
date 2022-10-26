@@ -10,6 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EAD_2022_A1">
         <activity
+            android:name=".UpdateFuelFinishTime"
+            android:exported="false" />
+        <activity
+            android:name=".UpdateFuelStationDetails"
+            android:exported="false" />
+        <activity
+            android:name=".AddFuelStation"
+            android:exported="false" />
+        <activity
+            android:name=".SelectFuelType"
+            android:exported="false" />
+        <activity
             android:name=".Register"
             android:exported="false" />
         <activity
