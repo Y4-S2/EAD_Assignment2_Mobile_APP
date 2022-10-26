@@ -19,25 +19,23 @@
         >
 
         <TextView
+            android:id="@+id/fsName"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Hello World"
-            android:id="@+id/fsName"
             android:layout_margin="5dp"
-            android:textSize="20sp"
-            android:textColor="#000"
-            android:fontFamily="@font/bungee"
-            android:transitionName="logo_text"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
             android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="Hello World"
+            android:textAlignment="center"
+            android:textColor="#000"
+            android:textSize="20sp"
+            android:transitionName="logo_text"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:textAlignment="center"
-            />
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

@@ -43,10 +43,10 @@ public class ItemView extends AppCompatActivity {
     //set fuel station info
     private void setFuelStationInfo() {
         //add items to array list
-        fuelStation.add(new FuelStation("Shell"));
-        fuelStation.add(new FuelStation("Caltex"));
-        fuelStation.add(new FuelStation("Puma"));
-        fuelStation.add(new FuelStation("BP"));
+        fuelStation.add(new FuelStation("Wattala Station"));
+        fuelStation.add(new FuelStation("Homagama Station"));
+        fuelStation.add(new FuelStation("Kaduwela Station"));
+        fuelStation.add(new FuelStation("Kadawatha Station"));
     }
 
 
