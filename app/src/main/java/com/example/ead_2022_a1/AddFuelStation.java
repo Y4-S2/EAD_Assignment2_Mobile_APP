@@ -2,6 +2,7 @@ package com.example.ead_2022_a1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -65,6 +66,9 @@ public class AddFuelStation extends AppCompatActivity {
                             if(response.isSuccessful()){
                                 //if successful show message
                                 Toast.makeText(AddFuelStation.this, "Fuel station added successfully", Toast.LENGTH_SHORT).show();
+
+                                //go back to the main activity
+                                Intent intent = new Intent(AddFuelStation.this, FuelOwnerProfile.class);
                             }
                         }
 

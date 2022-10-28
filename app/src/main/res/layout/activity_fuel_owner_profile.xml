@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginEnd="10dp"
+    android:background="#ffffff">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="SpeakableTextPresentCheck"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="360dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <ImageView
+                        android:id="@+id/imageView5"
+                        android:layout_width="148dp"
+                        android:layout_height="120dp"
+                        android:layout_marginStart="130dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="131dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        />
+
+                    <TextView
+                        android:id="@+id/textView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Fuel Station"
+                        android:textColor="#ffffff"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+
+                        app:layout_constraintEnd_toEndOf="@+id/imageView5"
+                        app:layout_constraintStart_toStartOf="@+id/imageView5"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+
+                    <TextView
+                        android:id="@+id/textView5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="#123FuelStationID"
+                        android:textColor="#ffffff"
+                        android:textSize="18sp"
+                        app:layout_constraintEnd_toEndOf="@+id/textView4"
+                        app:layout_constraintStart_toStartOf="@+id/textView4"
+                        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="400dp"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="24dp"
+                        android:layout_marginBottom="24dp"
+                        android:background="#ffffff"
+                        android:elevation="3dp"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView5"
+                        android:padding="10dp"
+                        >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:id="@+id/textViewPetrol"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Petrol"
+                                android:textColor="#182693"
+                                android:textSize="18sp"
+
+                                tools:ignore="DuplicateIds" />
+
+                            <TextView
+                                android:id="@+id/textViewPetrolAmount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="500L"
+                                android:textAlignment="viewEnd"
+                                android:textColor="#5B5B5B"
+                                android:textSize="18sp"
+                                tools:ignore="DuplicateIds" />
+
+                        </LinearLayout>
+
+                        <View
+                            android:id="@+id/FuelStationViewOne"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="#D9D909"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginTop="6dp"
+                            android:layout_marginBottom="6dp"
+                            />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textViewDiesel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Diesel"
+                                android:textColor="#182693"
+                                android:textSize="18sp"
+
+                                />
+
+                            <TextView
+                                android:id="@+id/textViewDieselAmount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="500L"
+                                android:textAlignment="viewEnd"
+                                android:textColor="#5B5B5B"
+                                android:textSize="18sp" />
+
+                        </LinearLayout>
+
+                        <View
+                            android:id="@+id/FuelStationViewTwo"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="6dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="6dp"
+                            android:background="#D9D909" />
+
+
+
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <Button
+                android:id="@+id/btnFuelStationProfileBack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="24dp"
+                android:text="Back"
+                android:textColor="#ffffff"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

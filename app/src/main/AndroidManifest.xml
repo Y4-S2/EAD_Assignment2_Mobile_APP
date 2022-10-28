@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ead_2022_a1">
-
-    <!--    internet permission-->
+    <!-- internet permission -->
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -13,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EAD_2022_A1"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".FuelOwnerProfile"
+            android:exported="false" />
         <activity
             android:name=".UpdateFuelFinishTime"
             android:exported="false" />

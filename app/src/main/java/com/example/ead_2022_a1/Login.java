@@ -73,7 +73,7 @@ public class Login extends AppCompatActivity {
                             startActivity(intent);
                         }
                         else if(userType.equals("Station Owner")){
-                            Intent intent = new Intent(Login.this, AddFuelStation.class);
+                            Intent intent = new Intent(Login.this, FuelOwnerProfile.class);
                             intent.putExtra("username", user);
                             startActivity(intent);
                         }
