@@ -2,17 +2,29 @@ package com.example.ead_2022_a1;
 
 public class FuelStation {
 
-    String fsName;
+    String userName , name ,location;
 
-    public FuelStation(String fsName) {
-        this.fsName = fsName;
+    public String getUserName() {
+        return userName;
     }
 
-    public String getFsName() {
-        return fsName;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public void setFsName(String fsName) {
-        this.fsName = fsName;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 }
