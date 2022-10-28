@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -59,11 +60,23 @@ public class Login extends AppCompatActivity {
                     Toast.makeText(Login.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
                 else{
                     Boolean checkUserPass = DB.checkUsernamePassword(user, pass);
-                    //check if the username and password are correct
+                    //get user type
+                    String userType = DB.getUserType(user);
                     if(checkUserPass==true){
                         Toast.makeText(Login.this, "Logged in successfully", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(Login.this, SelectFuelType.class);
-                        startActivity(intent);
+//                        Intent intent = new Intent(Login.this, SelectFuelType.class);
+//                        startActivity(intent);
+
+                        //check user type
+                        if(userType.equals("User")){
+                            Intent intent = new Intent(Login.this, SelectFuelType.class);
+                            startActivity(intent);
+                        }
+                        else if(userType.equals("Station Owner")){
+                            Intent intent = new Intent(Login.this, AddFuelStation.class);
+                            intent.putExtra("username", user);
+                            startActivity(intent);
+                        }
                     }else{
                         Toast.makeText(Login.this, "Invalid credentials", Toast.LENGTH_SHORT).show();
                     }

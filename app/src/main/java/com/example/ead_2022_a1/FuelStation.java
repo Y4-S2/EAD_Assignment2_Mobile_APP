@@ -4,6 +4,12 @@ public class FuelStation {
 
     String userName , name ,location;
 
+    public FuelStation(String userName, String name, String location) {
+        this.userName = userName;
+        this.name = name;
+        this.location = location;
+    }
+
     public String getUserName() {
         return userName;
     }
