@@ -48,7 +48,7 @@ public class AddFuelStation extends AppCompatActivity {
                 String fuelStationLocation = fuelStationLocationLayout.getEditText().getText().toString();
 
                 //fuel station object
-                FuelStation fuelStation = new FuelStation(username, fuelStationName, fuelStationLocation);
+                FuelStation fuelStation = new FuelStation(username, fuelStationName, fuelStationLocation , "0", "0");
 
                 //check if the fields are empty
                 if(fuelStationName.equals("")||fuelStationLocation.equals(""))
