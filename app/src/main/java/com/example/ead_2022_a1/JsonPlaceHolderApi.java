@@ -21,7 +21,7 @@ public interface JsonPlaceHolderApi {
 
     //create fuel station
     @POST("fuelStations")
-    Call<FuelStation> addFuelStation(@Body FuelStation fuelStation);
+    Call<JsonObject> addFuelStation(@Body JsonObject fuelStation);
 
     //get fuel station by username
     @GET("fuelStations/getFuelStationByUserName/{userName}")

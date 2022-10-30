@@ -13,6 +13,9 @@
         android:theme="@style/Theme.EAD_2022_A1"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".AddVehicle"
+            android:exported="false" />
+        <activity
             android:name=".FuelOwnerProfile"
             android:exported="false" />
         <activity

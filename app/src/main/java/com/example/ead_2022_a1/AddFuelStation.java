@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.gson.JsonObject;
 
 import java.security.interfaces.DSAKey;
 
@@ -37,18 +38,24 @@ public class AddFuelStation extends AppCompatActivity {
         fuelStationLocationLayout = findViewById(R.id.fuel_station_location_layout);
 
         //get intent
-        String username = getIntent().getStringExtra("username");
+        String username = getIntent().getStringExtra("userName");
 
         //add fuel station with retrofit
         btnAddFuelStation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                jsonPlaceHolderApi = RetrofitBuilder.getInstance().configure();
+
                 //get values from edit text
                 String fuelStationName = fuelStationNameLayout.getEditText().getText().toString();
                 String fuelStationLocation = fuelStationLocationLayout.getEditText().getText().toString();
 
-                //fuel station object
-                FuelStation fuelStation = new FuelStation(username, fuelStationName, fuelStationLocation , "0", "0");
+                JsonObject fuelStation = new JsonObject();
+                fuelStation.addProperty("userName", username);
+                fuelStation.addProperty("name", fuelStationName);
+                fuelStation.addProperty("location", fuelStationLocation);
+
+                System.out.println(fuelStation);
 
                 //check if the fields are empty
                 if(fuelStationName.equals("")||fuelStationLocation.equals(""))
@@ -56,25 +63,21 @@ public class AddFuelStation extends AppCompatActivity {
                     Toast.makeText(AddFuelStation.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
                 else{
 
-                    //create fuel station object
-
-
-
                    //call the add fuel station method
-                    jsonPlaceHolderApi.addFuelStation(fuelStation).enqueue(new Callback<FuelStation>() {
+                    jsonPlaceHolderApi.addFuelStation(fuelStation).enqueue(new Callback<JsonObject>() {
                         @Override
-                        public void onResponse(Call<FuelStation> call, Response<FuelStation> response) {
+                        public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                             if(response.isSuccessful()){
                                 //if successful show message
                                 Toast.makeText(AddFuelStation.this, "Fuel station added successfully", Toast.LENGTH_SHORT).show();
-
-                                //go back to the main activity
-                                Intent intent = new Intent(AddFuelStation.this, FuelOwnerProfile.class);
                             }
+                            Intent intent = new Intent(AddFuelStation.this, FuelOwnerProfile.class);
+                            intent.putExtra("userName", username);
+                            startActivity(intent);
                         }
 
                         @Override
-                        public void onFailure(Call<FuelStation> call, Throwable t) {
+                        public void onFailure(Call<JsonObject> call, Throwable t) {
                             //if failed show error
                             Toast.makeText(AddFuelStation.this, "Error: "+t.getMessage(), Toast.LENGTH_SHORT).show();
                         }

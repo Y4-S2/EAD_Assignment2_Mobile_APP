@@ -12,6 +12,8 @@ public class FuelStation {
         this.userName = userName;
         this.name = name;
         this.location = location;
+        this.petrolAmount = petrolAmount;
+        this.dieselAmount = dieselAmount;
     }
 
     public String getUserName() {
