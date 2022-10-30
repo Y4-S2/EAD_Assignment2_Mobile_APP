@@ -57,7 +57,8 @@ public class AddFuelStation extends AppCompatActivity {
                 else{
 
                     //create fuel station object
-                   jsonPlaceHolderApi =  RetrofitBuilder.getInstance().configure();
+
+
 
                    //call the add fuel station method
                     jsonPlaceHolderApi.addFuelStation(fuelStation).enqueue(new Callback<FuelStation>() {

@@ -9,6 +9,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
@@ -25,5 +26,8 @@ public interface JsonPlaceHolderApi {
     //get fuel station by username
     @GET("fuelStations/getFuelStationByUserName/{userName}")
     Call<JsonObject> getFuelStationByUsername(@Path("userName") String userName);
+
+    @PUT("fuelStations/{userName}/{fuelType}")
+    Call<FuelStation> updateFuelStation(@Path("userName") String userName, @Path("fuelType") String type, @Body FuelStation fuelStation);
 
 }

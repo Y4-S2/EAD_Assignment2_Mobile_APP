@@ -2,7 +2,11 @@ package com.example.ead_2022_a1;
 
 public class FuelStation {
 
-    String userName , name ,location, petrolAmount , dieselAmount;
+    String userName , name ,location, petrolAmount , dieselAmount , arrivalTime , arrivalDate , finishTime , finishDate;
+
+    public FuelStation() {
+
+    }
 
     public FuelStation(String userName, String name, String location , String petrolAmount, String dieselAmount) {
         this.userName = userName;
@@ -48,5 +52,37 @@ public class FuelStation {
 
     public void setDieselAmount(String dieselAmount) {
         this.dieselAmount = dieselAmount;
+    }
+
+    public String getArrivalTime() {
+        return arrivalTime;
+    }
+
+    public void setArrivalTime(String arrivalTime) {
+        this.arrivalTime = arrivalTime;
+    }
+
+    public String getArrivalDate() {
+        return arrivalDate;
+    }
+
+    public void setArrivalDate(String arrivalDate) {
+        this.arrivalDate = arrivalDate;
+    }
+
+    public String getFinishTime() {
+        return finishTime;
+    }
+
+    public void setFinishTime(String finishTime) {
+        this.finishTime = finishTime;
+    }
+
+    public String getFinishDate() {
+        return finishDate;
+    }
+
+    public void setFinishDate(String finishDate) {
+        this.finishDate = finishDate;
     }
 }

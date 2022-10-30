@@ -2,8 +2,11 @@ package com.example.ead_2022_a1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,6 +20,7 @@ public class FuelOwnerProfile extends AppCompatActivity {
     // Declaring variables
     private JsonPlaceHolderApi jsonPlaceHolderApi;
     TextView patrolAmountText, dieselAmountText , ownerNameText , fuelStationNameText ;
+    Button updateBtn,finishBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +32,8 @@ public class FuelOwnerProfile extends AppCompatActivity {
         dieselAmountText = findViewById(R.id.textViewDieselAmount);
         ownerNameText = findViewById(R.id.textViewFuelOwnerName);
         fuelStationNameText = findViewById(R.id.textViewFuelStationName);
+        updateBtn = findViewById(R.id.buttonUpdateFuelArrivalTime);
+        finishBtn = findViewById(R.id.buttonUpdateFuelFinishTime);
 
         String userName = getIntent().getStringExtra("userName");
 
@@ -68,5 +74,17 @@ public class FuelOwnerProfile extends AppCompatActivity {
                 Toast.makeText(FuelOwnerProfile.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+
+//         update btn
+            updateBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //onclick navigate to update fuel arrival time
+                    Intent intent = new Intent(FuelOwnerProfile.this, UpdateFuelStationDetails.class);
+                    intent.putExtra("userName", userName);
+                    startActivity(intent);
+                }
+            });
+
     }
 }

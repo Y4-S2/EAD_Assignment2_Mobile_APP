@@ -43,6 +43,24 @@
             android:layout_marginBottom="20dp"
             android:orientation="vertical">
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/update_fuel_amount_layout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Fuel Amount"
+                android:transitionName="input_fuel_amount"
+                app:boxStrokeColor="#FF9100">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/update_fuel_amount_edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textCursorDrawable="@android:color/holo_blue_bright" />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
 
 <!--            date picker-->
             <com.google.android.material.textfield.TextInputLayout
@@ -90,6 +108,31 @@
 
                     />
             </com.google.android.material.textfield.TextInputLayout>
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:transitionName="radio_group">
+                <RadioButton
+                    android:id="@+id/radioPetrol"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Petrol"
+                    android:checked="true"/>
+
+                <RadioButton
+                    android:id="@+id/radioDiesel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="80dp"
+                    android:text="Diesel"
+
+                    />
+
+
+            </RadioGroup>
 
 
 
