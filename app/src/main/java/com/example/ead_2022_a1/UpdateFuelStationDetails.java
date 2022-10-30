@@ -15,6 +15,7 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.gson.JsonObject;
 
 import java.util.Calendar;
 
@@ -109,31 +110,31 @@ public class UpdateFuelStationDetails extends AppCompatActivity {
                 String type = fuelType.getText().toString();
 
                 //update fuel station details
-                FuelStation fuelStation = new FuelStation();
+                JsonObject object = new JsonObject();
                 if(type.equals("Petrol")){
-                    fuelStation.setPetrolAmount(fuelAmount.getEditText().getText().toString());
-                    fuelStation.setPatrolArrivalDate(fuelArrivalDate.getEditText().getText().toString());
-                    fuelStation.setPatrolArrivalTime(fuelArrivalTime.getEditText().getText().toString());
+                    object.addProperty("petrolArrivalTime", fuelArrivalTime.getEditText().getText().toString());
+                    object.addProperty("petrolArrivalDate", fuelArrivalDate.getEditText().getText().toString());
+                    object.addProperty("petrolAmount", fuelAmount.getEditText().getText().toString());
                 }else{
-                    fuelStation.setDieselAmount(fuelAmount.getEditText().getText().toString());
-                    fuelStation.setDieselArrivalDate(fuelArrivalDate.getEditText().getText().toString());
-                    fuelStation.setDieselArrivalTime(fuelArrivalTime.getEditText().getText().toString());
+                    object.addProperty("dieselArrivalTime", fuelArrivalTime.getEditText().getText().toString());
+                    object.addProperty("dieselArrivalDate", fuelArrivalDate.getEditText().getText().toString());
+                    object.addProperty("dieselAmount", fuelAmount.getEditText().getText().toString());
                 }
 
                 System.out.println(type);
 
 
                 //call update fuel station details method
-                Call<FuelStation> call = jsonPlaceHolderApi.updateFuelStation(userName, type, fuelStation);
-                call.enqueue(new retrofit2.Callback<FuelStation>() {
+                Call<JsonObject> call = jsonPlaceHolderApi.updateFuelStation(userName, type, object);
+                call.enqueue(new retrofit2.Callback<JsonObject>() {
                     @Override
-                    public void onResponse(Call<FuelStation> call, retrofit2.Response<FuelStation> response) {
+                    public void onResponse(Call<JsonObject> call, retrofit2.Response<JsonObject> response) {
                         if (!response.isSuccessful()) {
                             Toast.makeText(UpdateFuelStationDetails.this, "Code: " + response.code(), Toast.LENGTH_SHORT).show();
                             return;
                         }
                         //get response
-                        FuelStation fuelStation = response.body();
+                        JsonObject object = response.body();
 
                         //display success message
                         Toast.makeText(UpdateFuelStationDetails.this, "Fuel Station Details Updated Successfully", Toast.LENGTH_SHORT).show();
@@ -146,7 +147,7 @@ public class UpdateFuelStationDetails extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onFailure(Call<FuelStation> call, Throwable t) {
+                    public void onFailure(Call<JsonObject> call, Throwable t) {
                         Toast.makeText(UpdateFuelStationDetails.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
 
                     }

@@ -50,6 +50,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/fs"
                         />
 
                     <TextView
@@ -80,7 +81,7 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="320dp"
+                        android:layout_height="310dp"
                         android:layout_marginStart="24dp"
                         android:layout_marginTop="8dp"
                         android:layout_marginEnd="24dp"
@@ -275,6 +276,7 @@
                                 android:textSize="18sp"
                                 tools:ignore="DuplicateIds" />
                         </LinearLayout>
+
                         <View
                             android:id="@+id/FuelStationViewTwo"
                             android:layout_width="match_parent"
@@ -310,27 +312,17 @@
                 android:textColor="#FFFFFF"
                 android:textSize="18sp" />
 
-            <Button
-                android:id="@+id/buttonUpdateFuelFinishTime"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="24dp"
-                android:layout_marginTop="10dp"
-                android:background="#182693"
-                android:text="Update fuel finish time"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp" />
+<!--            <Button-->
+<!--                android:id="@+id/buttonUpdateFuelFinishTime"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginHorizontal="24dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:background="#182693"-->
+<!--                android:text="Update fuel finish time"-->
+<!--                android:textColor="#FFFFFF"-->
+<!--                android:textSize="18sp" />-->
 
-            <Button
-                android:id="@+id/btnFuelStationProfileBack"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="24dp"
-                android:layout_marginTop="10dp"
-                android:text="Back"
-                android:textColor="#ffffff"
-                android:textSize="18sp"
-                android:textStyle="bold" />
         </LinearLayout>
     </ScrollView>
 
