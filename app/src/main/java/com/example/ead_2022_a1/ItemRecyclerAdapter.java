@@ -1,6 +1,8 @@
 package com.example.ead_2022_a1;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,12 +20,13 @@ import java.util.List;
 public class ItemRecyclerAdapter extends RecyclerView.Adapter<ItemRecyclerAdapter.MyViewHolder>{
     private Context context;
     private List<FuelStation> itemList;
+    private String userName,vehicleId;
 
-
-
-    public ItemRecyclerAdapter( Context context, List<FuelStation> itemList) {
+    public ItemRecyclerAdapter( Context context, List<FuelStation> itemList , String userName , String vehicleId) {
         this.itemList = itemList;
         this.context = context;
+        this.userName = userName;
+        this.vehicleId = vehicleId;
     }
 
     @NonNull
@@ -34,7 +37,7 @@ public class ItemRecyclerAdapter extends RecyclerView.Adapter<ItemRecyclerAdapte
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
         String name = itemList.get(position).getName();
         holder.fsName.setText(name);
@@ -42,10 +45,11 @@ public class ItemRecyclerAdapter extends RecyclerView.Adapter<ItemRecyclerAdapte
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BottomSheetDialog bottomSheetDialog = new BottomSheetDialog( context , R.style.BottomSheetDialogTheme);
-                View bottomSheetView = LayoutInflater.from(context).inflate(R.layout.layout_bottom_sheet, null);
-                bottomSheetDialog.setContentView(bottomSheetView);
-                bottomSheetDialog.show();
+                Intent intent = new Intent(context, UserJoinQueue.class);
+                intent.putExtra("ownerName", itemList.get(position).getUserName());
+                intent.putExtra("userName", userName);
+                intent.putExtra("vehicleId", vehicleId);
+                context.startActivity(intent);
             }
         });
     }

@@ -19,8 +19,8 @@ import retrofit2.Response;
 public class FuelOwnerProfile extends AppCompatActivity {
     // Declaring variables
     private JsonPlaceHolderApi jsonPlaceHolderApi;
-    TextView patrolAmountText, dieselAmountText , ownerNameText , fuelStationNameText ;
-    Button updateBtn,finishBtn;
+    TextView patrolAmountText, dieselAmountText, ownerNameText, fuelStationNameText, petrolArriavalTimeText, dieselArriavalTimeText, petrolArriavalDateText, dieselArriavalDateText;
+    Button updateBtn, finishBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +34,15 @@ public class FuelOwnerProfile extends AppCompatActivity {
         fuelStationNameText = findViewById(R.id.textViewFuelStationName);
         updateBtn = findViewById(R.id.buttonUpdateFuelArrivalTime);
         finishBtn = findViewById(R.id.buttonUpdateFuelFinishTime);
+        petrolArriavalTimeText = findViewById(R.id.textViewPetrolArrivalTimeValue);
+        dieselArriavalTimeText = findViewById(R.id.textViewDieselArrivalTimeValue);
+        petrolArriavalDateText = findViewById(R.id.textViewPetrolArrivalDateValue);
+        dieselArriavalDateText = findViewById(R.id.textViewDieselArrivalDateValue);
 
+        // Getting the data from the previous activity
         String userName = getIntent().getStringExtra("userName");
 
+        // jsonPlaceHolderApi is an object of the JsonPlaceHolderApi class
         jsonPlaceHolderApi = RetrofitBuilder.getInstance().configure();
 
         //retrofit call
@@ -50,7 +56,7 @@ public class FuelOwnerProfile extends AppCompatActivity {
                     Toast.makeText(FuelOwnerProfile.this, "Code: " + response.code(), Toast.LENGTH_SHORT).show();
                     return;
                 }
-                System.out.println(response.body().getAsJsonObject("fuelStation"));
+                // json object
                 JsonObject jsonObject = response.body();
                 JsonObject fuelStation = jsonObject.getAsJsonObject("fuelStation");
                 String userName = fuelStation.get("userName").getAsString();
@@ -58,33 +64,42 @@ public class FuelOwnerProfile extends AppCompatActivity {
                 String location = fuelStation.get("location").getAsString();
                 String petrolAmount = fuelStation.get("petrolAmount").getAsString();
                 String dieselAmount = fuelStation.get("dieselAmount").getAsString();
+                String petrolArrivalTime = fuelStation.get("petrolArrivalTime").getAsString();
+                String dieselArrivalTime = fuelStation.get("dieselArrivalTime").getAsString();
+                String petrolArrivalDate = fuelStation.get("petrolArrivalDate").getAsString();
+                String dieselArrivalDate = fuelStation.get("dieselArrivalDate").getAsString();
 
-                Toast.makeText(FuelOwnerProfile.this, dieselAmount, Toast.LENGTH_SHORT).show();
+                System.out.println("Petrol Arrival Time: " + petrolArrivalTime);
 
                 // Setting the values
-                patrolAmountText.setText(petrolAmount+" L");
-                dieselAmountText.setText(dieselAmount+" L");
+                patrolAmountText.setText(petrolAmount + " L");
+                dieselAmountText.setText(dieselAmount + " L");
                 ownerNameText.setText(userName);
                 fuelStationNameText.setText(name);
+                petrolArriavalTimeText.setText(petrolArrivalTime);
+                dieselArriavalTimeText.setText(dieselArrivalTime);
+                petrolArriavalDateText.setText(petrolArrivalDate);
+                dieselArriavalDateText.setText(dieselArrivalDate);
 
             }
 
             @Override
             public void onFailure(Call<JsonObject> call, Throwable t) {
+                // Log error
                 Toast.makeText(FuelOwnerProfile.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
 
-//         update btn
-            updateBtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    //onclick navigate to update fuel arrival time
-                    Intent intent = new Intent(FuelOwnerProfile.this, UpdateFuelStationDetails.class);
-                    intent.putExtra("userName", userName);
-                    startActivity(intent);
-                }
-            });
+        //update btn onclick listener
+        updateBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //onclick navigate to update fuel arrival time
+                Intent intent = new Intent(FuelOwnerProfile.this, UpdateFuelStationDetails.class);
+                intent.putExtra("userName", userName);
+                startActivity(intent);
+            }
+        });
 
     }
 }

@@ -72,6 +72,16 @@ public class Register extends AppCompatActivity {
                                 Toast.makeText(Register.this, "Registered successfully", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(getApplicationContext(),Login.class);
                                 startActivity(intent);
+                                if(type.equals("User")){
+                                    Intent intent1 = new Intent(getApplicationContext(),AddVehicle.class);
+                                    intent1.putExtra("userName",user);
+                                    startActivity(intent1);
+                                }
+                                else if(type.equals("Station Owner")){
+                                    Intent intent2 = new Intent(getApplicationContext(),Login.class);
+                                    intent2.putExtra("userName",user);
+                                    startActivity(intent2);
+                                }
                             }else{
                                 //if not inserted show error
                                 Toast.makeText(Register.this, "Registration failed", Toast.LENGTH_SHORT).show();

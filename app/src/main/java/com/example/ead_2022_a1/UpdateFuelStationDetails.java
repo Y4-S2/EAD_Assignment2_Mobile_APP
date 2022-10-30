@@ -46,6 +46,7 @@ public class UpdateFuelStationDetails extends AppCompatActivity {
         fuelAmount = findViewById(R.id.update_fuel_amount_layout);
 
 
+
         //set date picker
         fuelArrivalDate.getEditText().setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,12 +110,14 @@ public class UpdateFuelStationDetails extends AppCompatActivity {
 
                 //update fuel station details
                 FuelStation fuelStation = new FuelStation();
-                fuelStation.setArrivalDate(fuelArrivalDate.getEditText().getText().toString());
-                fuelStation.setArrivalTime(fuelArrivalTime.getEditText().getText().toString());
                 if(type.equals("Petrol")){
                     fuelStation.setPetrolAmount(fuelAmount.getEditText().getText().toString());
+                    fuelStation.setPatrolArrivalDate(fuelArrivalDate.getEditText().getText().toString());
+                    fuelStation.setPatrolArrivalTime(fuelArrivalTime.getEditText().getText().toString());
                 }else{
                     fuelStation.setDieselAmount(fuelAmount.getEditText().getText().toString());
+                    fuelStation.setDieselArrivalDate(fuelArrivalDate.getEditText().getText().toString());
+                    fuelStation.setDieselArrivalTime(fuelArrivalTime.getEditText().getText().toString());
                 }
 
                 System.out.println(type);

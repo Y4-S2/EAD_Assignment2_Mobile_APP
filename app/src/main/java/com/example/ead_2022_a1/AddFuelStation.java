@@ -55,8 +55,6 @@ public class AddFuelStation extends AppCompatActivity {
                 fuelStation.addProperty("name", fuelStationName);
                 fuelStation.addProperty("location", fuelStationLocation);
 
-                System.out.println(fuelStation);
-
                 //check if the fields are empty
                 if(fuelStationName.equals("")||fuelStationLocation.equals(""))
                     //if empty show error

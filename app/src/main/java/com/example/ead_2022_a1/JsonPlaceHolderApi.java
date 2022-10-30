@@ -27,7 +27,28 @@ public interface JsonPlaceHolderApi {
     @GET("fuelStations/getFuelStationByUserName/{userName}")
     Call<JsonObject> getFuelStationByUsername(@Path("userName") String userName);
 
-    @PUT("fuelStations/{userName}/{fuelType}")
+    @PUT("fuelStations/updateFuelStation/{userName}/{fuelType}")
     Call<FuelStation> updateFuelStation(@Path("userName") String userName, @Path("fuelType") String type, @Body FuelStation fuelStation);
+
+    //add vehicle
+    @POST("vehicles")
+    Call<JsonObject> addVehicle(@Body JsonObject vehicle);
+
+    //join queue
+    @PUT("fuelStations/addVehicleToQueue/{ownerName}")
+    Call<JsonObject> joinQueue(@Path("ownerName") String ownerName, @Body JsonObject vehicle);
+
+    //leave before pump
+    @PUT("fuelStations/removeVehicleFromQueue/{ownerName}")
+    Call<JsonObject> leaveBeforePump(@Path("ownerName") String ownerName, @Body JsonObject vehicle);
+
+    //leave after pump
+    @PUT("fuelStations/removeVehicleFromQueue/{ownerName}")
+    Call<JsonObject> leaveAfterPump(@Path("ownerName") String ownerName, @Body JsonObject vehicle);
+
+    //get vehicle by username
+    @GET("vehicles/getVehicleByUserName/{userName}")
+    Call<JsonObject> getVehicleByUsername(@Path("userName") String userName);
+
 
 }

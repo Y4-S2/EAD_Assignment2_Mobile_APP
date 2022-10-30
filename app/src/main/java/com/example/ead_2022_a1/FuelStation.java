@@ -2,7 +2,7 @@ package com.example.ead_2022_a1;
 
 public class FuelStation {
 
-    String userName , name ,location, petrolAmount , dieselAmount , arrivalTime , arrivalDate , finishTime , finishDate;
+    String userName , name ,location, petrolAmount , dieselAmount , petrolArrivalTime , dieselArrivalTime , petrolArrivalDate , dieselArrivalDate;
 
     public FuelStation() {
 
@@ -56,35 +56,35 @@ public class FuelStation {
         this.dieselAmount = dieselAmount;
     }
 
-    public String getArrivalTime() {
-        return arrivalTime;
+    public String getPatrolArrivalTime() {
+        return petrolArrivalTime;
     }
 
-    public void setArrivalTime(String arrivalTime) {
-        this.arrivalTime = arrivalTime;
+    public void setPatrolArrivalTime(String patrolArrivalTime) {
+        this.petrolArrivalTime = patrolArrivalTime;
     }
 
-    public String getArrivalDate() {
-        return arrivalDate;
+    public String getDieselArrivalTime() {
+        return dieselArrivalTime;
     }
 
-    public void setArrivalDate(String arrivalDate) {
-        this.arrivalDate = arrivalDate;
+    public void setDieselArrivalTime(String dieselArrivalTime) {
+        this.dieselArrivalTime = dieselArrivalTime;
     }
 
-    public String getFinishTime() {
-        return finishTime;
+    public String getPatrolArrivalDate() {
+        return petrolArrivalDate;
     }
 
-    public void setFinishTime(String finishTime) {
-        this.finishTime = finishTime;
+    public void setPatrolArrivalDate(String patrolArrivalDate) {
+        this.petrolArrivalDate = patrolArrivalDate;
     }
 
-    public String getFinishDate() {
-        return finishDate;
+    public String getDieselArrivalDate() {
+        return dieselArrivalDate;
     }
 
-    public void setFinishDate(String finishDate) {
-        this.finishDate = finishDate;
+    public void setDieselArrivalDate(String dieselArrivalDate) {
+        this.dieselArrivalDate = dieselArrivalDate;
     }
 }

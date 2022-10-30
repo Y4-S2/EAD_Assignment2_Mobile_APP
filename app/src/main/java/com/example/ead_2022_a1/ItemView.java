@@ -11,6 +11,8 @@ import android.util.Log;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.gson.JsonObject;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -26,6 +28,7 @@ public class ItemView extends AppCompatActivity {
     private RecyclerView recyclerView;
     LinearLayoutManager layoutManager;
     private JsonPlaceHolderApi jsonPlaceHolderApi;
+    String userName ,vehicleId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,13 +36,17 @@ public class ItemView extends AppCompatActivity {
         setContentView(R.layout.activity_item_view);
         recyclerView = findViewById(R.id.item_recycle);
 
+        //get intent
+        userName = getIntent().getStringExtra("userName");
+
+        getVehicleInfo();
         setFuelStationInfo();
     }
 
     //set adapter
     private void setAdapter(List<FuelStation> fuelStationList) {
 
-        ItemRecyclerAdapter itemAdapter = new ItemRecyclerAdapter(this, fuelStationList);
+        ItemRecyclerAdapter itemAdapter = new ItemRecyclerAdapter(this, fuelStationList, userName ,vehicleId);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -79,6 +86,41 @@ public class ItemView extends AppCompatActivity {
         });
 
     }
+
+    //get vehicle info
+    private void getVehicleInfo() {
+
+        jsonPlaceHolderApi = RetrofitBuilder.getInstance().configure();
+
+        //retrofit call
+        Call<JsonObject> call = jsonPlaceHolderApi.getVehicleByUsername(userName);
+
+        //retrofit enqueue
+        call.enqueue(new Callback<JsonObject>() {
+            @Override
+            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                if (!response.isSuccessful()) {
+                    Toast.makeText(ItemView.this, "Code: " + response.code(), Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                JsonObject jsonObject = response.body();
+
+                //get vehicle info
+                 vehicleId = jsonObject.get("_id").getAsString();
+
+                Log.d("jsonObject", jsonObject.toString());
+
+            }
+
+            @Override
+            public void onFailure(Call<JsonObject> call, Throwable t) {
+                Toast.makeText(ItemView.this, "Error: " + t.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
+
+    }
+
 
 
 }
