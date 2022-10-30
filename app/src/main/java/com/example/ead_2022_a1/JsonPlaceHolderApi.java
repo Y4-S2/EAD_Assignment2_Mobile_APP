@@ -27,6 +27,7 @@ public interface JsonPlaceHolderApi {
     @GET("fuelStations/getFuelStationByUserName/{userName}")
     Call<JsonObject> getFuelStationByUsername(@Path("userName") String userName);
 
+    //update fuel station
     @PUT("fuelStations/updateFuelStation/{userName}/{fuelType}")
     Call<FuelStation> updateFuelStation(@Path("userName") String userName, @Path("fuelType") String type, @Body FuelStation fuelStation);
 
@@ -49,6 +50,5 @@ public interface JsonPlaceHolderApi {
     //get vehicle by username
     @GET("vehicles/getVehicleByUserName/{userName}")
     Call<JsonObject> getVehicleByUsername(@Path("userName") String userName);
-
 
 }
