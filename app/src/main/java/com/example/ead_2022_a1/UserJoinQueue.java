@@ -20,6 +20,7 @@ public class UserJoinQueue extends AppCompatActivity {
     TextInputLayout fuelAmount;
     Button joinQueueButton;
     private JsonPlaceHolderApi jsonPlaceHolderApi;
+    private String vehicleId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +30,30 @@ public class UserJoinQueue extends AppCompatActivity {
         //get intent
         String ownerName = getIntent().getStringExtra("ownerName");
         String userName = getIntent().getStringExtra("userName");
-        String vehicleId = getIntent().getStringExtra("vehicleId");
+
+
+        //get vehicle id
+        jsonPlaceHolderApi = RetrofitBuilder.getInstance().configure();
+        Call<JsonObject> call = jsonPlaceHolderApi.getVehicleByUsername(userName);
+        call.enqueue(new Callback<JsonObject>() {
+            @Override
+            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                if (!response.isSuccessful()) {
+                    Toast.makeText(UserJoinQueue.this, "Error: " + response.code(), Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                //get response
+                JsonObject jsonObject = response.body();
+                vehicleId = jsonObject.get("_id").getAsString();
+            }
+
+            @Override
+            public void onFailure(Call<JsonObject> call, Throwable t) {
+                Toast.makeText(UserJoinQueue.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
         //declare variables
         fuelAmount = findViewById(R.id.join_queue_fuel_amount_layout);
@@ -47,25 +71,25 @@ public class UserJoinQueue extends AppCompatActivity {
                 String fuelAmountString = fuelAmount.getEditText().getText().toString();
 
                 //check if fuel amount is empty
-                if(fuelAmountString.isEmpty()){
+                if (fuelAmountString.isEmpty()) {
                     fuelAmount.setError("Fuel amount is required");
                     return;
                 }
 
                 //check if fuel amount is valid
-                if(!fuelAmountString.matches("^[0-9]*$")){
+                if (!fuelAmountString.matches("^[0-9]*$")) {
                     fuelAmount.setError("Fuel amount is invalid");
                     return;
                 }
 
                 //check if fuel amount is less than 10
-                if(Integer.parseInt(fuelAmountString) < 1){
+                if (Integer.parseInt(fuelAmountString) < 1) {
                     fuelAmount.setError("Fuel amount must be greater than 10");
                     return;
                 }
 
                 //check if fuel amount is greater than 100
-                if(Integer.parseInt(fuelAmountString) > 20){
+                if (Integer.parseInt(fuelAmountString) > 20) {
                     fuelAmount.setError("Fuel amount must be less than 100");
                     return;
                 }
@@ -73,7 +97,9 @@ public class UserJoinQueue extends AppCompatActivity {
                 //create json object
                 JsonObject jsonObject = new JsonObject();
                 jsonObject.addProperty("fuelAmount", fuelAmountString);
-                jsonObject.addProperty("vehicleId", userName);
+                jsonObject.addProperty("vehicleId", vehicleId);
+
+                System.out.println("hello" + vehicleId);
 
                 //call api
                 Call<JsonObject> call = jsonPlaceHolderApi.joinQueue(ownerName, jsonObject);
@@ -82,32 +108,19 @@ public class UserJoinQueue extends AppCompatActivity {
                 call.enqueue(new Callback<JsonObject>() {
                     @Override
                     public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                        if(!response.isSuccessful()){
+                        if (!response.isSuccessful()) {
                             Toast.makeText(UserJoinQueue.this, "Error: " + response.code(), Toast.LENGTH_SHORT).show();
                             return;
                         }
 
-                        //get response
-                        JsonObject jsonObject = response.body();
 
-                        //check if response is null
-                        if(jsonObject == null){
-                            return;
-                        }
+                        Toast.makeText(UserJoinQueue.this, "You have successfully joined the queue", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(UserJoinQueue.this, UserQueue.class);
+                        intent.putExtra("userName", userName);
+                        intent.putExtra("ownerName", ownerName);
+                        intent.putExtra("vehicleId", vehicleId);
+                        startActivity(intent);
 
-                        //check if response is success
-                        if(jsonObject.get("success").getAsBoolean()){
-                            //success
-                            Toast.makeText(UserJoinQueue.this, "You have successfully joined the queue", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(UserJoinQueue.this, UserQueue.class);
-                            intent.putExtra("userName", userName);
-                            intent.putExtra("ownerName", ownerName);
-                            intent.putExtra("vehicleId", vehicleId);
-                            startActivity(intent);
-                        }else{
-                            //error
-                            Toast.makeText(UserJoinQueue.this, "Error: " + jsonObject.get("message").getAsString(), Toast.LENGTH_SHORT).show();
-                        }
                     }
 
                     @Override

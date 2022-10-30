@@ -20,13 +20,12 @@ import java.util.List;
 public class ItemRecyclerAdapter extends RecyclerView.Adapter<ItemRecyclerAdapter.MyViewHolder>{
     private Context context;
     private List<FuelStation> itemList;
-    private String userName,vehicleId;
+    private String userName;
 
-    public ItemRecyclerAdapter( Context context, List<FuelStation> itemList , String userName , String vehicleId) {
+    public ItemRecyclerAdapter( Context context, List<FuelStation> itemList , String userName ) {
         this.itemList = itemList;
         this.context = context;
         this.userName = userName;
-        this.vehicleId = vehicleId;
     }
 
     @NonNull
@@ -48,7 +47,6 @@ public class ItemRecyclerAdapter extends RecyclerView.Adapter<ItemRecyclerAdapte
                 Intent intent = new Intent(context, UserJoinQueue.class);
                 intent.putExtra("ownerName", itemList.get(position).getUserName());
                 intent.putExtra("userName", userName);
-                intent.putExtra("vehicleId", vehicleId);
                 context.startActivity(intent);
             }
         });

@@ -76,6 +76,7 @@ public class Login extends AppCompatActivity {
                         //check user type
                         if(userType.equals("User")){
                             Intent intent = new Intent(Login.this, SelectFuelType.class);
+                            intent.putExtra("userName", user);
                             startActivity(intent);
                         }
                         else if(userType.equals("Station Owner")){

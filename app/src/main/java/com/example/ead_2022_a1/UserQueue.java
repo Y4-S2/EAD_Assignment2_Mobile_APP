@@ -52,32 +52,18 @@ public class UserQueue extends AppCompatActivity {
                 call.enqueue(new Callback<JsonObject>() {
                     @Override
                     public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                        if(!response.isSuccessful()){
+                        if (!response.isSuccessful()) {
                             Toast.makeText(UserQueue.this, "Error: " + response.code(), Toast.LENGTH_SHORT).show();
                             return;
                         }
+                        //toast
+                        Toast.makeText(UserQueue.this, "You have left the queue", Toast.LENGTH_SHORT).show();
 
-                        //get response
-                        JsonObject jsonObject = response.body();
-
-                        //check if response is null
-                        if(jsonObject == null){
-                            Toast.makeText(UserQueue.this, "Error: " + response.code(), Toast.LENGTH_SHORT).show();
-                            return;
-                        }
-
-                        //check if response is successful
-                        if(jsonObject.get("success").getAsBoolean()){
-                            Toast.makeText(UserQueue.this, "You have left the queue before pumping", Toast.LENGTH_SHORT).show();
-
-                            //go to user home page
-                            Intent intent = new Intent(UserQueue.this, ItemView.class);
-                            intent.putExtra("userName", userName);
-                            intent.putExtra("ownerName", ownerName);
-                            startActivity(intent);
-                        }else{
-                            Toast.makeText(UserQueue.this, "Error: " + jsonObject.get("message").getAsString(), Toast.LENGTH_SHORT).show();
-                        }
+                        //go to user home page
+                        Intent intent = new Intent(UserQueue.this, ItemView.class);
+                        intent.putExtra("userName", userName);
+                        intent.putExtra("ownerName", ownerName);
+                        startActivity(intent);
                     }
 
                     @Override
@@ -106,32 +92,19 @@ public class UserQueue extends AppCompatActivity {
                 call.enqueue(new Callback<JsonObject>() {
                     @Override
                     public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                        if(!response.isSuccessful()){
+                        if (!response.isSuccessful()) {
                             Toast.makeText(UserQueue.this, "Error: " + response.code(), Toast.LENGTH_SHORT).show();
                             return;
                         }
-
-                        //get response
-                        JsonObject jsonObject = response.body();
-
-                        //check if response is null
-                        if(jsonObject == null){
-                            Toast.makeText(UserQueue.this, "Error: " + response.code(), Toast.LENGTH_SHORT).show();
-                            return;
-                        }
-
-                        //check if response is successful
-                        if(jsonObject.get("success").getAsBoolean()){
-                            Toast.makeText(UserQueue.this, "You have left the queue after pumping", Toast.LENGTH_SHORT).show();
+                        //toast
+                        Toast.makeText(UserQueue.this, "You have left the queue", Toast.LENGTH_SHORT).show();
 
                             //go to user home page
                             Intent intent = new Intent(UserQueue.this, ItemView.class);
                             intent.putExtra("userName", userName);
                             intent.putExtra("ownerName", ownerName);
                             startActivity(intent);
-                        }else{
-                            Toast.makeText(UserQueue.this, "Error: " + jsonObject.get("message").getAsString(), Toast.LENGTH_SHORT).show();
-                        }
+
                     }
 
                     @Override

@@ -39,11 +39,11 @@ public interface JsonPlaceHolderApi {
     Call<JsonObject> joinQueue(@Path("ownerName") String ownerName, @Body JsonObject vehicle);
 
     //leave before pump
-    @PUT("fuelStations/removeVehicleFromQueue/{ownerName}")
+    @PUT("fuelStations/removeVehicleWithoutFuel/{ownerName}")
     Call<JsonObject> leaveBeforePump(@Path("ownerName") String ownerName, @Body JsonObject vehicle);
 
     //leave after pump
-    @PUT("fuelStations/removeVehicleFromQueue/{ownerName}")
+    @PUT("fuelStations/removeVehicleWithFuel/{ownerName}")
     Call<JsonObject> leaveAfterPump(@Path("ownerName") String ownerName, @Body JsonObject vehicle);
 
     //get vehicle by username
