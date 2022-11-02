@@ -31,6 +31,10 @@ public interface JsonPlaceHolderApi {
     @PUT("fuelStations/updateFuelStation/{userName}/{fuelType}")
     Call<JsonObject> updateFuelStation(@Path("userName") String userName, @Path("fuelType") String type, @Body JsonObject fuelStation);
 
+    //update fuel finish time
+    @PUT("fuelStations/updateFinishFuelStation/{userName}/{fuelType}")
+    Call<JsonObject> updateFinishFuelStation(@Path("userName") String userName, @Path("fuelType") String type, @Body JsonObject fuelStation);
+
     //add vehicle
     @POST("vehicles")
     Call<JsonObject> addVehicle(@Body JsonObject vehicle);

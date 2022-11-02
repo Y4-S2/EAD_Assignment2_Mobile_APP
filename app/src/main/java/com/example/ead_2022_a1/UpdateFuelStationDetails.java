@@ -115,10 +115,14 @@ public class UpdateFuelStationDetails extends AppCompatActivity {
                     object.addProperty("petrolArrivalTime", fuelArrivalTime.getEditText().getText().toString());
                     object.addProperty("petrolArrivalDate", fuelArrivalDate.getEditText().getText().toString());
                     object.addProperty("petrolAmount", fuelAmount.getEditText().getText().toString());
+                    object.addProperty("petrolDepartureTime", "null");
+                    object.addProperty("petrolDepartureDate", "null");
                 }else{
                     object.addProperty("dieselArrivalTime", fuelArrivalTime.getEditText().getText().toString());
                     object.addProperty("dieselArrivalDate", fuelArrivalDate.getEditText().getText().toString());
                     object.addProperty("dieselAmount", fuelAmount.getEditText().getText().toString());
+                    object.addProperty("dieselDepartureTime", "null");
+                    object.addProperty("dieselDepartureDate", "null");
                 }
 
                 System.out.println(type);

@@ -20,8 +20,8 @@ public class FuelOwnerProfile extends AppCompatActivity {
 
     // Declaring variables
     private JsonPlaceHolderApi jsonPlaceHolderApi;
-    TextView patrolAmountText, dieselAmountText, ownerNameText, fuelStationNameText, petrolArriavalTimeText, dieselArriavalTimeText, petrolArriavalDateText, dieselArriavalDateText;
-    Button updateBtn;
+    TextView patrolAmountText, dieselAmountText, ownerNameText, fuelStationNameText, petrolArriavalTimeText, dieselArriavalTimeText, petrolArriavalDateText, dieselArriavalDateText ,petrolFinishTimeText, dieselFinishTimeText, petrolFinishDateText, dieselFinishDateText;
+    Button updateBtn , updateFinishTimeBtn;
     String petrolArrivalDate;
 
     @Override
@@ -39,6 +39,11 @@ public class FuelOwnerProfile extends AppCompatActivity {
         dieselArriavalTimeText = findViewById(R.id.textViewDieselArrivalTimeValue);
         petrolArriavalDateText = findViewById(R.id.textViewPetrolArrivalDateValue);
         dieselArriavalDateText = findViewById(R.id.textViewDieselArrivalDateValue);
+        updateFinishTimeBtn = findViewById(R.id.buttonUpdateFuelFinishTime);
+        petrolFinishTimeText = findViewById(R.id.textViewPetrolFinishTimeValue);
+        dieselFinishTimeText = findViewById(R.id.textViewDieselFinishTimeValue);
+        petrolFinishDateText = findViewById(R.id.textViewPetrolFinishDateValue);
+        dieselFinishDateText = findViewById(R.id.textViewDieselFinishDateValue);
 
         // Getting the data from the previous activity
         String userName = getIntent().getStringExtra("userName");
@@ -69,8 +74,11 @@ public class FuelOwnerProfile extends AppCompatActivity {
                 String dieselArrivalTime = fuelStation.get("dieselArrivalTime").getAsString();
                 petrolArrivalDate = fuelStation.get("petrolArrivalDate").getAsString();
                 String dieselArrivalDate = fuelStation.get("dieselArrivalDate").getAsString();
+                String petrolFinishTime = fuelStation.get("petrolDepartureTime").getAsString();
+                String dieselFinishTime = fuelStation.get("dieselDepartureTime").getAsString();
+                String petrolFinishDate = fuelStation.get("petrolDepartureDate").getAsString();
+                String dieselFinishDate = fuelStation.get("dieselDepartureDate").getAsString();
 
-                System.out.println("Petrol Arrival Time: " + petrolArrivalTime);
 
                 // Setting the values
                 patrolAmountText.setText(petrolAmount + " L");
@@ -81,7 +89,10 @@ public class FuelOwnerProfile extends AppCompatActivity {
                 dieselArriavalTimeText.setText(dieselArrivalTime);
                 petrolArriavalDateText.setText(petrolArrivalDate);
                 dieselArriavalDateText.setText(dieselArrivalDate);
-
+                petrolFinishTimeText.setText(petrolFinishTime);
+                dieselFinishTimeText.setText(dieselFinishTime);
+                petrolFinishDateText.setText(petrolFinishDate);
+                dieselFinishDateText.setText(dieselFinishDate);
             }
 
             @Override
@@ -95,20 +106,25 @@ public class FuelOwnerProfile extends AppCompatActivity {
         updateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (petrolArrivalDate.equals("null")) {
                     //onclick navigate to update fuel arrival time
                     Intent intent = new Intent(FuelOwnerProfile.this, UpdateFuelStationDetails.class);
                     intent.putExtra("userName", userName);
                     startActivity(intent);
-                } else {
-                    //onclick navigate to update fuel finish time
-                    Intent intent = new Intent(FuelOwnerProfile.this, UpdateFuelFinishTime.class);
-                    intent.putExtra("userName", userName);
-                    startActivity(intent);
-                }
-
             }
         });
+
+        //update finish time btn onclick listener
+        updateFinishTimeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //onclick navigate to update fuel finish time
+                Intent intent = new Intent(FuelOwnerProfile.this, UpdateFuelFinishTime.class);
+                intent.putExtra("userName", userName);
+                startActivity(intent);
+            }
+        });
+
+
 
     }
 }

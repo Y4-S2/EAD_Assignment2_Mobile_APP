@@ -115,15 +115,17 @@ public class UpdateFuelFinishTime extends AppCompatActivity {
                 JsonObject object = new JsonObject();
 
                 if(type.equals("Petrol")){
-                    object.addProperty("petrolFinishTime",finishTime);
-                    object.addProperty("petrolFinishDate",finishDate);
+                    object.addProperty("petrolDepartureTime",finishTime);
+                    object.addProperty("petrolDepartureDate",finishDate);
+                    object.addProperty("petrolAmount",0);
                 }else if(type.equals("Diesel")){
-                    object.addProperty("dieselFinishTime",finishTime);
-                    object.addProperty("dieselFinishDate",finishDate);
+                    object.addProperty("dieselDepartureTime",finishTime);
+                    object.addProperty("dieselDepartureDate",finishDate);
+                    object.addProperty("dieselAmount",0);
                 }
 
                 //call api
-                Call<JsonObject> call = jsonPlaceHolderApi.updateFuelStation(userName, type, object);
+                Call<JsonObject> call = jsonPlaceHolderApi.updateFinishFuelStation(userName, type, object);
 
                 //set on success listener
                 call.enqueue(new retrofit2.Callback<JsonObject>() {
