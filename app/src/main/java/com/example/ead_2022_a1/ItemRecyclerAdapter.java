@@ -31,7 +31,7 @@ public class ItemRecyclerAdapter extends RecyclerView.Adapter<ItemRecyclerAdapte
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.fuel_station_list_item, parent, false);
         return new MyViewHolder(view);
     }
 
@@ -40,6 +40,8 @@ public class ItemRecyclerAdapter extends RecyclerView.Adapter<ItemRecyclerAdapte
 
         String name = itemList.get(position).getName();
         holder.fsName.setText(name);
+        holder.fsLocation.setText(itemList.get(position).getLocation());
+        holder.fsQueue.setText("Queue: " + itemList.get(position).getPetrolQueueLength());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,10 +60,13 @@ public class ItemRecyclerAdapter extends RecyclerView.Adapter<ItemRecyclerAdapte
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView fsName;
+        TextView fsName ,fsLocation, fsQueue;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             fsName = itemView.findViewById(R.id.fsName);
+            fsLocation = itemView.findViewById(R.id.fsLocation);
+            fsQueue = itemView.findViewById(R.id.fsQueue);
+
         }
     }
 }

@@ -2,7 +2,7 @@ package com.example.ead_2022_a1;
 
 public class FuelStation {
 
-    String userName , name ,location, petrolAmount , dieselAmount , petrolArrivalTime , dieselArrivalTime , petrolArrivalDate , dieselArrivalDate;
+    String userName , name ,location, petrolAmount , dieselAmount , petrolArrivalTime , dieselArrivalTime , petrolArrivalDate , dieselArrivalDate, petrolQueueLength;
 
     public FuelStation() {
 
@@ -86,5 +86,9 @@ public class FuelStation {
 
     public void setDieselArrivalDate(String dieselArrivalDate) {
         this.dieselArrivalDate = dieselArrivalDate;
+    }
+
+    public String getPetrolQueueLength() {
+        return petrolQueueLength;
     }
 }
