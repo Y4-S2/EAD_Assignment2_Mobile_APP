@@ -23,7 +23,7 @@ import retrofit2.Call;
 
 public class UpdateFuelStationDetails extends AppCompatActivity {
 
-    TextInputLayout fuelArrivalTime, fuelArrivalDate ,fuelAmount;
+    TextInputLayout fuelArrivalTime, fuelArrivalDate, fuelAmount;
     DatePickerDialog.OnDateSetListener setListener;
     TimePickerDialog.OnTimeSetListener setListener2;
     Button updateFuelStationDetailsBtn;
@@ -45,7 +45,6 @@ public class UpdateFuelStationDetails extends AppCompatActivity {
         updateFuelStationDetailsBtn = findViewById(R.id.update_fuel_station_details_button);
         radioGroup = findViewById(R.id.radioGroup);
         fuelAmount = findViewById(R.id.update_fuel_amount_layout);
-
 
 
         //set date picker
@@ -109,53 +108,57 @@ public class UpdateFuelStationDetails extends AppCompatActivity {
                 fuelType = findViewById(selectedId);
                 String type = fuelType.getText().toString();
 
-                //update fuel station details
-                JsonObject object = new JsonObject();
-                if(type.equals("Petrol")){
-                    object.addProperty("petrolArrivalTime", fuelArrivalTime.getEditText().getText().toString());
-                    object.addProperty("petrolArrivalDate", fuelArrivalDate.getEditText().getText().toString());
-                    object.addProperty("petrolAmount", fuelAmount.getEditText().getText().toString());
-                    object.addProperty("petrolDepartureTime", "null");
-                    object.addProperty("petrolDepartureDate", "null");
-                }else{
-                    object.addProperty("dieselArrivalTime", fuelArrivalTime.getEditText().getText().toString());
-                    object.addProperty("dieselArrivalDate", fuelArrivalDate.getEditText().getText().toString());
-                    object.addProperty("dieselAmount", fuelAmount.getEditText().getText().toString());
-                    object.addProperty("dieselDepartureTime", "null");
-                    object.addProperty("dieselDepartureDate", "null");
-                }
+                //check if all fields are filled
+                if (fuelArrivalDate.getEditText().getText().toString().isEmpty() || fuelArrivalTime.getEditText().getText().toString().isEmpty() || fuelAmount.getEditText().getText().toString().isEmpty()) {
+                    Toast.makeText(UpdateFuelStationDetails.this, "Please fill all the fields", Toast.LENGTH_SHORT).show();
+                } else {
 
-                System.out.println(type);
+                    //update fuel station details
+                    JsonObject object = new JsonObject();
+                    if (type.equals("Petrol")) {
+                        object.addProperty("petrolArrivalTime", fuelArrivalTime.getEditText().getText().toString());
+                        object.addProperty("petrolArrivalDate", fuelArrivalDate.getEditText().getText().toString());
+                        object.addProperty("petrolAmount", fuelAmount.getEditText().getText().toString());
+                        object.addProperty("petrolDepartureTime", "null");
+                        object.addProperty("petrolDepartureDate", "null");
+                    } else {
+                        object.addProperty("dieselArrivalTime", fuelArrivalTime.getEditText().getText().toString());
+                        object.addProperty("dieselArrivalDate", fuelArrivalDate.getEditText().getText().toString());
+                        object.addProperty("dieselAmount", fuelAmount.getEditText().getText().toString());
+                        object.addProperty("dieselDepartureTime", "null");
+                        object.addProperty("dieselDepartureDate", "null");
+                    }
 
 
-                //call update fuel station details method
-                Call<JsonObject> call = jsonPlaceHolderApi.updateFuelStation(userName, type, object);
-                call.enqueue(new retrofit2.Callback<JsonObject>() {
-                    @Override
-                    public void onResponse(Call<JsonObject> call, retrofit2.Response<JsonObject> response) {
-                        if (!response.isSuccessful()) {
-                            Toast.makeText(UpdateFuelStationDetails.this, "Code: " + response.code(), Toast.LENGTH_SHORT).show();
-                            return;
+                    //call update fuel station details method
+                    Call<JsonObject> call = jsonPlaceHolderApi.updateFuelStation(userName, type, object);
+                    call.enqueue(new retrofit2.Callback<JsonObject>() {
+                        @Override
+                        public void onResponse(Call<JsonObject> call, retrofit2.Response<JsonObject> response) {
+                            if (!response.isSuccessful()) {
+                                Toast.makeText(UpdateFuelStationDetails.this, "Code: " + response.code(), Toast.LENGTH_SHORT).show();
+                                return;
+                            }
+                            //get response
+                            JsonObject object = response.body();
+
+                            //display success message
+                            Toast.makeText(UpdateFuelStationDetails.this, "Fuel Station Details Updated Successfully", Toast.LENGTH_SHORT).show();
+
+                            //redirect to fuel station details page
+                            Intent intent = new Intent(UpdateFuelStationDetails.this, FuelOwnerProfile.class);
+                            intent.putExtra("userName", userName);
+                            startActivity(intent);
+                            startActivity(intent);
                         }
-                        //get response
-                        JsonObject object = response.body();
 
-                        //display success message
-                        Toast.makeText(UpdateFuelStationDetails.this, "Fuel Station Details Updated Successfully", Toast.LENGTH_SHORT).show();
+                        @Override
+                        public void onFailure(Call<JsonObject> call, Throwable t) {
+                            Toast.makeText(UpdateFuelStationDetails.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
 
-                        //redirect to fuel station details page
-                        Intent intent = new Intent(UpdateFuelStationDetails.this, FuelOwnerProfile.class);
-                        intent.putExtra("userName", userName);
-                        startActivity(intent);
-                        startActivity(intent);
-                    }
-
-                    @Override
-                    public void onFailure(Call<JsonObject> call, Throwable t) {
-                        Toast.makeText(UpdateFuelStationDetails.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
-
-                    }
-                });
+                        }
+                    });
+                }
 
             }
         });
