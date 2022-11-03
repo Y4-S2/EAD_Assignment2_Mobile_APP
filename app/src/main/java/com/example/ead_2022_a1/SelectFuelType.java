@@ -16,6 +16,9 @@ public class SelectFuelType extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_fuel_type);
 
+        //get intent
+        String userName = getIntent().getStringExtra("userName");
+
         //initialize variables
         petrolCard = findViewById(R.id.fuel_type_card_view_petrol);
         dieselCard = findViewById(R.id.fuel_type_card_view_diesel);
@@ -25,6 +28,7 @@ public class SelectFuelType extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(SelectFuelType.this, ItemView.class);
+                intent.putExtra("userName", userName);
                 startActivity(intent);
             }
         });
@@ -34,6 +38,7 @@ public class SelectFuelType extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(SelectFuelType.this, ItemView.class);
+                intent.putExtra("userName", userName);
                 startActivity(intent);
             }
         });

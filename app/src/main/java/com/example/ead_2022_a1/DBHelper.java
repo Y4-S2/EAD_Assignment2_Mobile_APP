@@ -1,5 +1,6 @@
 package com.example.ead_2022_a1;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -58,5 +59,18 @@ public class DBHelper extends SQLiteOpenHelper{
         Cursor cursor = db.rawQuery("SELECT * FROM user WHERE username = ? AND password = ?", new String[]{username, password});
         if(cursor.getCount() > 0) return true;
         else return false;
+    }
+
+    //get user type
+    public String getUserType(String username){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM user WHERE username = ?", new String[]{username});
+        String type = "";
+        if(cursor.getCount() > 0){
+            while(cursor.moveToNext()){
+                type = cursor.getString(3);
+            }
+        }
+        return type;
     }
 }

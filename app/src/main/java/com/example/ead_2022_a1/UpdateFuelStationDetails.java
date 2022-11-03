@@ -4,29 +4,49 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.gson.JsonObject;
 
 import java.util.Calendar;
 
+import retrofit2.Call;
+
 public class UpdateFuelStationDetails extends AppCompatActivity {
 
-    TextInputLayout fuelArrivalTime, fuelArrivalDate;
+    TextInputLayout fuelArrivalTime, fuelArrivalDate ,fuelAmount;
     DatePickerDialog.OnDateSetListener setListener;
     TimePickerDialog.OnTimeSetListener setListener2;
+    Button updateFuelStationDetailsBtn;
+    private JsonPlaceHolderApi jsonPlaceHolderApi;
+    RadioButton fuelType;
+    RadioGroup radioGroup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_fuel_station_details);
 
+        //get intent values
+        String userName = getIntent().getStringExtra("userName");
+
         //initialize variables
         fuelArrivalTime = findViewById(R.id.add_fuel_station_time_layout);
         fuelArrivalDate = findViewById(R.id.add_fuel_station_date_layout);
+        updateFuelStationDetailsBtn = findViewById(R.id.update_fuel_station_details_button);
+        radioGroup = findViewById(R.id.radioGroup);
+        fuelAmount = findViewById(R.id.update_fuel_amount_layout);
+
+
 
         //set date picker
         fuelArrivalDate.getEditText().setOnClickListener(new View.OnClickListener() {
@@ -75,6 +95,70 @@ public class UpdateFuelStationDetails extends AppCompatActivity {
                 fuelArrivalTime.getEditText().setText(time);
             }
         };
+
+        //set on click listener for update fuel station details button
+        updateFuelStationDetailsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //get values from text fields
+                jsonPlaceHolderApi = RetrofitBuilder.getInstance().configure();
+
+                //set fuel type
+                int selectedId = radioGroup.getCheckedRadioButtonId();
+                fuelType = findViewById(selectedId);
+                String type = fuelType.getText().toString();
+
+                //update fuel station details
+                JsonObject object = new JsonObject();
+                if(type.equals("Petrol")){
+                    object.addProperty("petrolArrivalTime", fuelArrivalTime.getEditText().getText().toString());
+                    object.addProperty("petrolArrivalDate", fuelArrivalDate.getEditText().getText().toString());
+                    object.addProperty("petrolAmount", fuelAmount.getEditText().getText().toString());
+                    object.addProperty("petrolDepartureTime", "null");
+                    object.addProperty("petrolDepartureDate", "null");
+                }else{
+                    object.addProperty("dieselArrivalTime", fuelArrivalTime.getEditText().getText().toString());
+                    object.addProperty("dieselArrivalDate", fuelArrivalDate.getEditText().getText().toString());
+                    object.addProperty("dieselAmount", fuelAmount.getEditText().getText().toString());
+                    object.addProperty("dieselDepartureTime", "null");
+                    object.addProperty("dieselDepartureDate", "null");
+                }
+
+                System.out.println(type);
+
+
+                //call update fuel station details method
+                Call<JsonObject> call = jsonPlaceHolderApi.updateFuelStation(userName, type, object);
+                call.enqueue(new retrofit2.Callback<JsonObject>() {
+                    @Override
+                    public void onResponse(Call<JsonObject> call, retrofit2.Response<JsonObject> response) {
+                        if (!response.isSuccessful()) {
+                            Toast.makeText(UpdateFuelStationDetails.this, "Code: " + response.code(), Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                        //get response
+                        JsonObject object = response.body();
+
+                        //display success message
+                        Toast.makeText(UpdateFuelStationDetails.this, "Fuel Station Details Updated Successfully", Toast.LENGTH_SHORT).show();
+
+                        //redirect to fuel station details page
+                        Intent intent = new Intent(UpdateFuelStationDetails.this, FuelOwnerProfile.class);
+                        intent.putExtra("userName", userName);
+                        startActivity(intent);
+                        startActivity(intent);
+                    }
+
+                    @Override
+                    public void onFailure(Call<JsonObject> call, Throwable t) {
+                        Toast.makeText(UpdateFuelStationDetails.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+
+            }
+        });
 
 
     }

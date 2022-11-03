@@ -89,7 +89,30 @@
 
                     />
             </com.google.android.material.textfield.TextInputLayout>
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:transitionName="radio_group">
+                <RadioButton
+                    android:id="@+id/radioPetrol"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Petrol"
+                    android:checked="true"/>
 
+                <RadioButton
+                    android:id="@+id/radioDiesel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="80dp"
+                    android:text="Diesel"
+
+                    />
+
+
+            </RadioGroup>
 
 
 

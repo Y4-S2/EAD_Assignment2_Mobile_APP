@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginEnd="10dp"
+    android:background="#ffffff">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="SpeakableTextPresentCheck"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="360dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <ImageView
+                        android:id="@+id/imageView5"
+                        android:layout_width="148dp"
+                        android:layout_height="120dp"
+                        android:layout_marginStart="130dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="131dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/fs"
+                        />
+
+                    <TextView
+                        android:id="@+id/textViewFuelOwnerName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Fuel Station"
+                        android:textColor="#000000"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+
+                        app:layout_constraintEnd_toEndOf="@+id/imageView5"
+                        app:layout_constraintStart_toStartOf="@+id/imageView5"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+
+                    <TextView
+                        android:id="@+id/textViewFuelStationName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="#123FuelStationID"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        app:layout_constraintEnd_toEndOf="@+id/textViewFuelOwnerName"
+                        app:layout_constraintStart_toStartOf="@+id/textViewFuelOwnerName"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewFuelOwnerName" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="480dp"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="24dp"
+                        android:layout_marginBottom="24dp"
+                        android:background="#ffffff"
+                        android:elevation="3dp"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewFuelStationName"
+                        android:padding="10dp"
+                        >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:id="@+id/textViewPetrol"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Petrol"
+                                android:textColor="#182693"
+                                android:textSize="18sp"
+
+                                tools:ignore="DuplicateIds" />
+
+
+                            <TextView
+                                android:id="@+id/textViewPetrolAmount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="500L"
+                                android:textAlignment="viewEnd"
+                                android:textColor="#5B5B5B"
+                                android:textSize="18sp"
+                                tools:ignore="DuplicateIds" />
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:orientation="horizontal">
+
+<!--                            show petrol arrival time -->
+                            <TextView
+                                android:id="@+id/textViewPetrolArrivalTime"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Petrol Arrival Time"
+                                android:textColor="#5B5B5B"
+                                android:textSize="18sp"
+                                tools:ignore="DuplicateIds" />
+
+                            <TextView
+                                android:id="@+id/textViewPetrolArrivalTimeValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="10:00 AM"
+                                android:textAlignment="viewEnd"
+                                android:textColor="#5B5B5B"
+                                android:textSize="18sp"
+                                tools:ignore="DuplicateIds" />
+                        </LinearLayout>
+<!--                        Petrol Arrival Date-->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:id="@+id/textViewPetrolArrivalDate"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Petrol Arrival Date"
+                                android:textColor="#5B5B5B"
+                                android:textSize="18sp"
+                                tools:ignore="DuplicateIds" />
+
+                            <TextView
+                                android:id="@+id/textViewPetrolArrivalDateValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="10/10/2020"
+                                android:textAlignment="viewEnd"
+                                android:textColor="#5B5B5B"
+                                android:textSize="18sp"
+                                tools:ignore="DuplicateIds" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:id="@+id/textViewPetrolFinishTime"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Petrol Finish Time"
+                                android:textColor="#5B5B5B"
+                                android:textSize="18sp"
+                                tools:ignore="DuplicateIds" />
+
+                            <TextView
+                                android:id="@+id/textViewPetrolFinishTimeValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="10/10/2020"
+                                android:textAlignment="viewEnd"
+                                android:textColor="#5B5B5B"
+                                android:textSize="18sp"
+                                tools:ignore="DuplicateIds" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:id="@+id/textViewPetrolFinshDate"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Petrol Finish Date"
+                                android:textColor="#5B5B5B"
+                                android:textSize="18sp"
+                                tools:ignore="DuplicateIds" />
+
+                            <TextView
+                                android:id="@+id/textViewPetrolFinishDateValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="10/10/2020"
+                                android:textAlignment="viewEnd"
+                                android:textColor="#5B5B5B"
+                                android:textSize="18sp"
+                                tools:ignore="DuplicateIds" />
+                        </LinearLayout>
+                        <View
+                            android:id="@+id/FuelStationViewOne"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="#D9D909"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginTop="6dp"
+                            android:layout_marginBottom="6dp"
+                            />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textViewDiesel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Diesel"
+                                android:textColor="#182693"
+                                android:textSize="18sp"
+
+                                />
+
+                            <TextView
+                                android:id="@+id/textViewDieselAmount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="500L"
+                                android:textAlignment="viewEnd"
+                                android:textColor="#5B5B5B"
+                                android:textSize="18sp" />
+
+                        </LinearLayout>
+
+<!--                        show diesel arrival time -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:id="@+id/textViewDieselArrivalTime"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Diesel Arrival Time"
+                                android:textColor="#5B5B5B"
+                                android:textSize="18sp"
+                                tools:ignore="DuplicateIds" />
+
+                            <TextView
+                                android:id="@+id/textViewDieselArrivalTimeValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="10:00 AM"
+                                android:textAlignment="viewEnd"
+                                android:textColor="#5B5B5B"
+                                android:textSize="18sp"
+                                tools:ignore="DuplicateIds" />
+                        </LinearLayout>
+<!--                        Diesel Arrival Date-->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:id="@+id/textViewDieselArrivalDate"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Diesel Arrival Date"
+                                android:textColor="#5B5B5B"
+                                android:textSize="18sp"
+                                tools:ignore="DuplicateIds" />
+
+                            <TextView
+                                android:id="@+id/textViewDieselArrivalDateValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="10/10/2020"
+                                android:textAlignment="viewEnd"
+                                android:textColor="#5B5B5B"
+                                android:textSize="18sp"
+                                tools:ignore="DuplicateIds" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:id="@+id/textViewDieselFinishTime"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Diesel Finish Time"
+                                android:textColor="#5B5B5B"
+                                android:textSize="18sp"
+                                tools:ignore="DuplicateIds" />
+
+                            <TextView
+                                android:id="@+id/textViewDieselFinishTimeValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="10:00 AM"
+                                android:textAlignment="viewEnd"
+                                android:textColor="#5B5B5B"
+                                android:textSize="18sp"
+                                tools:ignore="DuplicateIds" />
+                        </LinearLayout>
+                        <!--                        Diesel Arrival Date-->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:id="@+id/textViewDieselFinishDate"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Diesel Finish Date"
+                                android:textColor="#5B5B5B"
+                                android:textSize="18sp"
+                                tools:ignore="DuplicateIds" />
+
+                            <TextView
+                                android:id="@+id/textViewDieselFinishDateValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="10/10/2020"
+                                android:textAlignment="viewEnd"
+                                android:textColor="#5B5B5B"
+                                android:textSize="18sp"
+                                tools:ignore="DuplicateIds" />
+                        </LinearLayout>
+
+                        <View
+                            android:id="@+id/FuelStationViewTwo"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="#D9D909"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginTop="6dp"
+                            android:layout_marginBottom="6dp"
+                            />
+
+
+
+
+
+
+
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--            update button-->
+
+
+            <Button
+                android:id="@+id/buttonUpdateFuelArrivalTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:background="#182693"
+                android:text="Update Arrival Time"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/buttonUpdateFuelFinishTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="10dp"
+                android:background="#182693"
+                android:text="Update finish time"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
