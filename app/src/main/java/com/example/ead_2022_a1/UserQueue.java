@@ -83,7 +83,7 @@ public class UserQueue extends AppCompatActivity {
 
                 //json object
                 JsonObject jsonObject = new JsonObject();
-                jsonObject.addProperty("userName", userName);
+                jsonObject.addProperty("vehicleId", vehicleId);
 
                 //call api
                 Call<JsonObject> call = jsonPlaceHolderApi.leaveAfterPump(ownerName, jsonObject);
@@ -110,6 +110,7 @@ public class UserQueue extends AppCompatActivity {
                     @Override
                     public void onFailure(Call<JsonObject> call, Throwable t) {
                         Toast.makeText(UserQueue.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                        System.out.println(t.getMessage());
                     }
                 });
             }

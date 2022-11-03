@@ -49,6 +49,7 @@
             android:name=".Dashboard"
             android:exported="false" />
         <activity
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:name=".MainActivity"
             android:exported="true" >
             <intent-filter>
